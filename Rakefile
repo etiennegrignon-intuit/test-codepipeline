@@ -5,7 +5,7 @@ require 'rubygems'
 require 'rake'
 require 'haml'
 
-task default: :compile
+task default: => :compile
 
 task :compile do
   FileList.new('./src/*.html.haml').each do |filename|
@@ -18,7 +18,7 @@ task :compile do
 end
 
 task :clean do
-  FileUtils.rm_r(Dir.glob("./*.html"), force: true)
+  FileUtils.rm_r(Dir.glob("./*.html"), force => true)
 end
 
 task :test do 
